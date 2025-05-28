@@ -1,0 +1,33 @@
+.log{
+    height:100vh;
+    background-color:rgba(0, 0, 0, 0.463);
+    position:absolute;
+    top:0px;
+    width:100%;
+    display:grid;
+    place-content:center;
+}
+.login-status{
+    height:200px;
+    border-radius:10px;
+    display:grid;
+    place-content:center;
+}
+.login-status p{
+    font-size:50px;
+    color:rgb(239, 231, 231);
+    margin-bottom:15px;
+}
+.login-status .btn{
+    margin-inline:40px;
+    margin-top:10px;
+    padding:10px;
+    text-align:center;
+    background-color:silver;
+    cursor:pointer;
+    border-radius:10px;
+}
+.login-status .btn:hover{
+    box-shadow:0px 0px 10px white;
+    transition-duration:0.5s;
+}
