@@ -40,7 +40,7 @@ const DataState = (props) => {
   const saveData = async(prompt,newFormatted)=>{
     setC(c+1);
     try{
-        const res = await axios.post("http://localhost:3001/api/prompts/save",{
+        const res = await axios.post("https://gemini-clone-9349.vercel.app/api/prompts/save",{
             "email":email,"prompt":prompt,"response":newFormatted
         });
         console.log("Data Saved");
@@ -71,7 +71,7 @@ const DataState = (props) => {
     const fetchPrompts = async () => {
       if (email) {
         try {
-          const res = await axios.post("http://localhost:3001/api/prompts/ret", {
+          const res = await axios.post("https://gemini-clone-9349.vercel.app/api/prompts/ret", {
             email: email,
           });
           setUsername(res.username);

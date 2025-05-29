@@ -76,7 +76,7 @@ const Main = () => {
     context.updatePrompt(prompt);
     setPrompt("");
     try {
-  const res = await axios.post("http://localhost:3001/api/res/gemini-res", {
+  const res = await axios.post("https://gemini-clone-9349.vercel.app/api/res/gemini-res", {
     prompt: prompt,
   });
 

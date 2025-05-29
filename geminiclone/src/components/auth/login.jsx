@@ -14,7 +14,7 @@ const Login=()=>{
             if(!email1 || !pass1){
                 alert("Please enter both email and password");
             }
-            const res = await axios.post("http://localhost:3001/api/auth/login",{
+            const res = await axios.post("https://gemini-clone-9349.vercel.app/api/auth/login",{
                 "email":email1, "password":pass1
             });
             if(res.status === 200){
