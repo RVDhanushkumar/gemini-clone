@@ -1,40 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState,useContext } from "react";
 import "./Sidebar.css";
 import { assets } from "../../assets/assets";
 import axios from "axios";
+import { dataContext } from "../../context/dataContext.jsx";
 
 const Sidebar = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [ext, setExt] = useState(false);
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const fetchPrompts = async () => {
-      const email = localStorage.getItem("email");
-      if (email) {
-        try {
-          const res = await axios.post("http://localhost:3001/api/prompts/ret", {
-            email: email,
-          });
-          setData(res.data.prompts);
-        } catch (err) {
-          console.log("ERROR: ", err);
-        }
-      }
-    };
-
-    fetchPrompts();
-  }, []);
+  const context = useContext(dataContext);
+  const data = context.data || [];
 
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${sidebarOpen ? 'extended' : ''}`}>
       <div className="top">
         <img
           className="menu"
           src={assets.menu_icon}
           alt="menuIcon"
-          onClick={() => setExt(!ext)}
+          onClick={() => {setExt(!ext);setSidebarOpen(!sidebarOpen)}}
         />
-        <div className="new-chat">
+        <div className="new-chat" onClick={()=>context.newChat()}>
           <img src={assets.plus_icon} alt="plus" />
           {ext ? <p>New Chat</p> : null}
         </div>
@@ -42,12 +27,14 @@ const Sidebar = () => {
         {ext && (
           <div className="recent">
             <p className="recent-title">Recent</p>
-            {data.map((item, index) => (
-              <div className="recent-entry" key={index}>
-                <img src={assets.message_icon} alt="msg" />
-                <p title={item.prompt}>{item.prompt}</p>
-              </div>
-            ))}
+            <div className='recent-data'>
+              {data.slice().reverse().map((item, index) => (
+                <div className="recent-entry" key={index} onClick={()=>context.pastChat(item.prompt,item.response)}>
+                  <img src={assets.message_icon} alt="msg" />
+                  <p title={item.prompt}>{item.prompt}</p>
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>

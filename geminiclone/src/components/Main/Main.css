@@ -202,4 +202,34 @@
     .search-box div{
         gap:5px
     }
+    .search-box input{
+        width:75%;
+    }
+    .main .cards{
+        display:flex;
+        flex-wrap:wrap;
+        margin-bottom:10px;
+    }
+    .main .card{
+        margin-top:0;
+        height:160px;
+        width:130px;
+        
+    }
+    .main .card p{
+        font-size:15px;
+    }
+    .main .greet{
+        margin-top:10px;
+        margin-bottom:0;
+        font-size:40px;
+    }
+    
+    .result-data p{
+        font-size:15px;
+        margin-top:-10px;
+    }
+    .search-box input{
+        width:60%;
+    }
 }
