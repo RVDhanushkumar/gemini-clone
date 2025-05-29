@@ -4,7 +4,6 @@
     flex-direction:column;
     top:10%;
     right:40%;
-    height:250px;
     width:300px;
     background-color:#f0f4f9;
     padding:15px;
@@ -36,4 +35,16 @@
     cursor:pointer;
     
     padding:5px;
+}
+
+.login-inputs p{
+    font-size:12px;
+    width:100%;
+    text-align:center;
+    padding-top:10px;
+}
+.login-inputs p span{
+    color:blue;
+    margin-left:5px;
+    cursor:pointer;
 }
