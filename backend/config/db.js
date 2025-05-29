@@ -1,11 +1,10 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/geminiDB", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(process.env.DB);
     console.log("MongoDB Connected");
   } catch (err) {
     console.error("MongoDB Connection Failed:", err.message);
